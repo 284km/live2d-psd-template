@@ -1,0 +1,41 @@
+{
+  "name": "live2d-psd-template",
+  "version": "0.1.0",
+  "description": "Generate Live2D-ready PSD templates from YAML layer structure definitions.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "author": "284km <k.furuhashi10@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/284km/live2d-psd-template.git"
+  },
+  "homepage": "https://github.com/284km/live2d-psd-template#readme",
+  "bugs": {
+    "url": "https://github.com/284km/live2d-psd-template/issues"
+  },
+  "keywords": [
+    "live2d",
+    "psd",
+    "template",
+    "clip-studio-paint",
+    "vtuber",
+    "illustration",
+    "yaml"
+  ],
+  "scripts": {
+    "generate": "node generate.mjs",
+    "generate:phase1": "node generate.mjs templates/phase1-minimum.yaml",
+    "generate:phase2": "node generate.mjs templates/phase2-standard.yaml",
+    "generate:phase3": "node generate.mjs templates/phase3-full.yaml",
+    "generate:all": "npm run generate:phase1 && npm run generate:phase2 && npm run generate:phase3"
+  },
+  "dependencies": {
+    "ag-psd": "^25.0.0",
+    "canvas": "^3.0.0",
+    "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

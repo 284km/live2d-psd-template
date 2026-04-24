@@ -1,0 +1,75 @@
+name: Live2D_Phase1_Minimum
+description: Minimum layer set for blink, lip sync, and head nod (~15 layers)
+
+canvas:
+  width: 2000
+  height: 3000
+  dpi: 350
+
+# Guide lines (face center, bust line)
+guides:
+  - { direction: vertical, position: 1000 }      # face center
+  - { direction: horizontal, position: 1200 }    # eye-level reference
+  - { direction: horizontal, position: 2500 }    # bust crop line
+
+# Layer structure is written top-to-bottom (same as CSP's layer panel).
+# The generator reverses it internally when writing the PSD.
+structure:
+  # Topmost: guide (visible only during work)
+  - type: layer
+    name: ガイド
+    color: gray
+    hidden: true
+    opacity: 0.3
+
+  # Accessories (skip for minimum setup)
+  # - { type: layer, name: アクセ, color: yellow }
+
+  # Front hair
+  - { type: layer, name: 前髪, color: blue }
+
+  # Face parts
+  - type: folder
+    name: 顔パーツ
+    color: red
+    opened: true
+    children:
+      - { type: layer, name: 右眉, color: red }
+      - { type: layer, name: 左眉, color: red }
+
+      - type: folder
+        name: 右目
+        color: red
+        children:
+          - { type: layer, name: 瞳ハイライト }
+          - { type: layer, name: 黒目 }
+          - { type: layer, name: 白目 }
+          - { type: layer, name: 上まぶた }
+          - { type: layer, name: 下まぶた }
+
+      - type: folder
+        name: 左目
+        color: red
+        children:
+          - { type: layer, name: 瞳ハイライト }
+          - { type: layer, name: 黒目 }
+          - { type: layer, name: 白目 }
+          - { type: layer, name: 上まぶた }
+          - { type: layer, name: 下まぶた }
+
+      - type: folder
+        name: 口
+        color: red
+        children:
+          - { type: layer, name: 口_閉じ }
+          - { type: layer, name: 口_あ, hidden: true }
+
+  # Face base (skin + outline). Paint under the hairline too, so the forehead
+  # is still covered when the front hair sways.
+  - { type: layer, name: 顔ベース, color: orange }
+
+  # Back hair
+  - { type: layer, name: 後ろ髪, color: blue }
+
+  # Body (clothing)
+  - { type: layer, name: 胴体, color: green }

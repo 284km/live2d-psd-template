@@ -1,0 +1,120 @@
+name: Live2D_Phase2_Standard
+description: Mid-level setup with expression presets and head XYZ (~35 layers)
+
+canvas:
+  width: 2000
+  height: 3000
+  dpi: 350
+
+guides:
+  - { direction: vertical, position: 1000 }
+  - { direction: horizontal, position: 1200 }
+  - { direction: horizontal, position: 2500 }
+
+structure:
+  - type: layer
+    name: ガイド
+    color: gray
+    hidden: true
+    opacity: 0.3
+
+  # Accessories (ribbon, hairpin, earrings)
+  - type: folder
+    name: アクセ
+    color: yellow
+    children:
+      - { type: layer, name: リボン }
+      - { type: layer, name: ヘアピン右, hidden: true }
+      - { type: layer, name: ヘアピン左, hidden: true }
+
+  # Front hair (split for physics)
+  - type: folder
+    name: 前髪
+    color: blue
+    children:
+      - { type: layer, name: 前髪_前 }
+      - { type: layer, name: 前髪_奥 }
+
+  # Side hair
+  - type: folder
+    name: 横髪
+    color: blue
+    children:
+      - { type: layer, name: 横髪_右 }
+      - { type: layer, name: 横髪_左 }
+
+  # Face parts
+  - type: folder
+    name: 顔パーツ
+    color: red
+    opened: true
+    children:
+      - { type: layer, name: 右眉, color: red }
+      - { type: layer, name: 左眉, color: red }
+
+      - type: folder
+        name: 右目
+        color: red
+        children:
+          - { type: layer, name: 瞳ハイライト }
+          - { type: layer, name: 瞳反射 }
+          - { type: layer, name: 黒目 }
+          - { type: layer, name: 白目 }
+          - { type: layer, name: 上まぶた }
+          - { type: layer, name: 下まぶた }
+          - { type: layer, name: まつ毛 }
+
+      - type: folder
+        name: 左目
+        color: red
+        children:
+          - { type: layer, name: 瞳ハイライト }
+          - { type: layer, name: 瞳反射 }
+          - { type: layer, name: 黒目 }
+          - { type: layer, name: 白目 }
+          - { type: layer, name: 上まぶた }
+          - { type: layer, name: 下まぶた }
+          - { type: layer, name: まつ毛 }
+
+      - { type: layer, name: 頬紅, opacity: 0.7 }
+      - { type: layer, name: 鼻 }
+
+      - type: folder
+        name: 口
+        color: red
+        children:
+          - { type: layer, name: 口_閉じ }
+          - { type: layer, name: 口_あ, hidden: true }
+          - { type: layer, name: 口_い, hidden: true }
+          - { type: layer, name: 口_お, hidden: true }
+
+  # Ears (skip if hidden by hair)
+  - type: folder
+    name: 耳
+    color: orange
+    hidden: true
+    children:
+      - { type: layer, name: 耳_右 }
+      - { type: layer, name: 耳_左 }
+
+  # Face base
+  - { type: layer, name: 顔ベース, color: orange }
+
+  # Neck
+  - { type: layer, name: 首, color: orange }
+
+  # Back hair
+  - type: folder
+    name: 後ろ髪
+    color: blue
+    children:
+      - { type: layer, name: 後ろ髪_内 }
+      - { type: layer, name: 後ろ髪_外 }
+
+  # Body
+  - type: folder
+    name: 胴体
+    color: green
+    children:
+      - { type: layer, name: 服 }
+      - { type: layer, name: 胴体_肌 }
