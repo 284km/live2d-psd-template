@@ -1,5 +1,7 @@
 # live2d-psd-template
 
+> 日本語版: [README.ja.md](README.ja.md)
+
 Generate Live2D-ready PSD templates from YAML layer structure definitions.
 
 Live2D models require a PSD with properly separated layers (hair, face parts, eyes, mouth, etc.). Setting up this structure from scratch every time is tedious and error-prone. This tool lets you:
