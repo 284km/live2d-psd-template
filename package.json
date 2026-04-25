@@ -28,7 +28,8 @@
     "generate:phase1": "node generate.mjs templates/phase1-minimum.yaml",
     "generate:phase2": "node generate.mjs templates/phase2-standard.yaml",
     "generate:phase3": "node generate.mjs templates/phase3-full.yaml",
-    "generate:all": "npm run generate:phase1 && npm run generate:phase2 && npm run generate:phase3"
+    "generate:phase4": "node generate.mjs templates/phase4-fullbody.yaml",
+    "generate:all": "npm run generate:phase1 && npm run generate:phase2 && npm run generate:phase3 && npm run generate:phase4"
   },
   "dependencies": {
     "ag-psd": "^25.0.0",

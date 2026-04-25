@@ -1,0 +1,248 @@
+name: Live2D_Phase4_FullBody
+description: Full body setup with arms, legs, hip, lower-body clothing, and shoes (~95 layers)
+
+# Full body needs a taller canvas than the bust-up phases.
+canvas:
+  width: 2400
+  height: 4200
+  dpi: 350
+
+guides:
+  - { direction: vertical, position: 1200 }       # face center
+  - { direction: horizontal, position: 1100 }     # eye-level reference
+  - { direction: horizontal, position: 1700 }     # shoulder line
+  - { direction: horizontal, position: 2400 }     # waist line
+  - { direction: horizontal, position: 3100 }     # knee line
+  - { direction: horizontal, position: 3900 }     # ankle line
+
+structure:
+  - type: layer
+    name: ガイド
+    color: gray
+    hidden: true
+    opacity: 0.3
+
+  # Front-side accessories
+  - type: folder
+    name: アクセ_前面
+    color: yellow
+    children:
+      - { type: layer, name: 帽子_前, hidden: true }
+      - { type: layer, name: リボン }
+      - { type: layer, name: ヘアピン右 }
+      - { type: layer, name: ヘアピン左 }
+      - { type: layer, name: イヤリング右 }
+      - { type: layer, name: イヤリング左 }
+
+  # Front hair (multi-layer split for sway physics)
+  - type: folder
+    name: 前髪
+    color: blue
+    children:
+      - { type: layer, name: 前髪_最前 }
+      - { type: layer, name: 前髪_前 }
+      - { type: layer, name: 前髪_中 }
+      - { type: layer, name: 前髪_奥 }
+      - { type: layer, name: アホ毛 }
+
+  # Side hair
+  - type: folder
+    name: 横髪
+    color: blue
+    children:
+      - type: folder
+        name: 横髪_右
+        children:
+          - { type: layer, name: 横髪_右_前 }
+          - { type: layer, name: 横髪_右_奥 }
+      - type: folder
+        name: 横髪_左
+        children:
+          - { type: layer, name: 横髪_左_前 }
+          - { type: layer, name: 横髪_左_奥 }
+
+  # Face parts
+  - type: folder
+    name: 顔パーツ
+    color: red
+    opened: true
+    children:
+      - type: folder
+        name: 眉
+        color: red
+        children:
+          - { type: layer, name: 右眉_通常 }
+          - { type: layer, name: 右眉_困り, hidden: true }
+          - { type: layer, name: 右眉_怒り, hidden: true }
+          - { type: layer, name: 左眉_通常 }
+          - { type: layer, name: 左眉_困り, hidden: true }
+          - { type: layer, name: 左眉_怒り, hidden: true }
+
+      - type: folder
+        name: 右目
+        color: red
+        children:
+          - { type: layer, name: 瞳ハイライト }
+          - { type: layer, name: 瞳反射 }
+          - { type: layer, name: 黒目 }
+          - { type: layer, name: 白目 }
+          - { type: layer, name: 上まぶた }
+          - { type: layer, name: 下まぶた }
+          - { type: layer, name: まつ毛 }
+          - { type: layer, name: 涙, hidden: true }
+
+      - type: folder
+        name: 左目
+        color: red
+        children:
+          - { type: layer, name: 瞳ハイライト }
+          - { type: layer, name: 瞳反射 }
+          - { type: layer, name: 黒目 }
+          - { type: layer, name: 白目 }
+          - { type: layer, name: 上まぶた }
+          - { type: layer, name: 下まぶた }
+          - { type: layer, name: まつ毛 }
+          - { type: layer, name: 涙, hidden: true }
+
+      - { type: layer, name: 頬紅, opacity: 0.7 }
+      - { type: layer, name: 鼻 }
+
+      - type: folder
+        name: 口
+        color: red
+        children:
+          - { type: layer, name: 口_閉じ }
+          - { type: layer, name: 口_あ, hidden: true }
+          - { type: layer, name: 口_い, hidden: true }
+          - { type: layer, name: 口_う, hidden: true }
+          - { type: layer, name: 口_え, hidden: true }
+          - { type: layer, name: 口_お, hidden: true }
+          - { type: layer, name: 口_ニコ, hidden: true }
+          - { type: layer, name: 口_困り, hidden: true }
+          - { type: layer, name: 歯 }
+          - { type: layer, name: 舌 }
+          - { type: layer, name: 口内, hidden: true }
+
+  # Ears
+  - type: folder
+    name: 耳
+    color: orange
+    children:
+      - { type: layer, name: 耳_右 }
+      - { type: layer, name: 耳_左 }
+
+  # Face base
+  - { type: layer, name: 顔ベース, color: orange }
+
+  # Neck
+  - { type: layer, name: 首, color: orange }
+
+  # Back hair (physics)
+  - type: folder
+    name: 後ろ髪
+    color: blue
+    children:
+      - { type: layer, name: 後ろ髪_内 }
+      - { type: layer, name: 後ろ髪_中 }
+      - { type: layer, name: 後ろ髪_外 }
+      - { type: layer, name: はね毛_右, hidden: true }
+      - { type: layer, name: はね毛_左, hidden: true }
+
+  # Arms (front side, in front of torso)
+  - type: folder
+    name: 腕
+    color: orange
+    children:
+      - type: folder
+        name: 右腕
+        children:
+          - { type: layer, name: 手_右 }
+          - { type: layer, name: 前腕_右 }
+          - { type: layer, name: 上腕_右 }
+          - { type: layer, name: 肩_右 }
+      - type: folder
+        name: 左腕
+        children:
+          - { type: layer, name: 手_左 }
+          - { type: layer, name: 前腕_左 }
+          - { type: layer, name: 上腕_左 }
+          - { type: layer, name: 肩_左 }
+
+  # Upper body (torso) clothing and skin
+  - type: folder
+    name: 胴体_上
+    color: green
+    children:
+      - type: folder
+        name: 衣装_上_通常
+        children:
+          - { type: layer, name: 服_上_前面 }
+          - { type: layer, name: 服_上_襟 }
+          - { type: layer, name: リボンタイ }
+      - type: folder
+        name: 衣装_上_差分1
+        hidden: true
+        children:
+          - { type: layer, name: 服_上_差分1_前面 }
+      - { type: layer, name: 胴体_上_肌 }
+      - { type: layer, name: 下着_上, hidden: true }
+
+  # Hip / waist (between torso and legs)
+  - { type: layer, name: 腰, color: orange }
+
+  # Lower body clothing — drawn in front of upper-leg skin so it covers thighs
+  - type: folder
+    name: 胴体_下
+    color: green
+    children:
+      - type: folder
+        name: 衣装_下_通常
+        children:
+          - { type: layer, name: スカート_前 }
+          - { type: layer, name: スカート_後, hidden: true }
+      - type: folder
+        name: 衣装_下_差分1
+        hidden: true
+        children:
+          - { type: layer, name: パンツ_前 }
+      - { type: layer, name: 下着_下, hidden: true }
+
+  # Legs (visible portion below clothing)
+  - type: folder
+    name: 脚
+    color: orange
+    children:
+      - type: folder
+        name: 右脚
+        children:
+          - { type: layer, name: 太もも_右 }
+          - { type: layer, name: すね_右 }
+          - { type: layer, name: 足_右 }
+      - type: folder
+        name: 左脚
+        children:
+          - { type: layer, name: 太もも_左 }
+          - { type: layer, name: すね_左 }
+          - { type: layer, name: 足_左 }
+
+  # Shoes (drawn in front of feet)
+  - type: folder
+    name: 靴
+    color: green
+    children:
+      - { type: layer, name: 靴_右 }
+      - { type: layer, name: 靴_左 }
+      - { type: layer, name: 靴下_右, hidden: true }
+      - { type: layer, name: 靴下_左, hidden: true }
+
+  # Back-side accessories (capes, back-of-head accessories, etc.)
+  - type: folder
+    name: アクセ_背面
+    color: yellow
+    hidden: true
+    children:
+      - { type: layer, name: 帽子_後 }
+      - { type: layer, name: マント_後 }
+
+  # Background (static)
+  - { type: layer, name: 背景, color: gray, hidden: true }

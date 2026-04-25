@@ -49,8 +49,9 @@ node generate.mjs templates/phase1-minimum.yaml
 ```bash
 npm run generate:phase1   # Phase 1 (minimum, ~15 layers)
 npm run generate:phase2   # Phase 2 (standard, ~35 layers)
-npm run generate:phase3   # Phase 3 (full, ~65 layers)
-npm run generate:all      # All three
+npm run generate:phase3   # Phase 3 (full upper body, ~65 layers)
+npm run generate:phase4   # Phase 4 (full body, ~95 layers)
+npm run generate:all      # All four
 ```
 
 ---
@@ -115,7 +116,8 @@ YAML is written **top-to-bottom** (matching the CSP layer panel). The generator 
 |------|-------:|---------------|----------|
 | `phase1-minimum.yaml` | ~15 | Blink, lip sync, head nod | Practice model, quick avatar |
 | `phase2-standard.yaml` | ~35 | Expressions, head XYZ, basic hair physics | First serious character |
-| `phase3-full.yaml` | ~65 | Hair physics, breathing, arms, outfit variants | Production / streaming |
+| `phase3-full.yaml` | ~65 | Hair physics, breathing, arms, outfit variants | Production / streaming (upper body) |
+| `phase4-fullbody.yaml` | ~95 | All of Phase 3 plus legs, hip, lower-body clothing, shoes | Full-body production / dance / motion capture |
 
 Start with **Phase 1**. Grow into Phase 2/3 as your needs expand.
 
